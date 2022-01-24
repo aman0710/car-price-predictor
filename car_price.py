@@ -145,18 +145,18 @@ lin_model.fit(X_train, Y_train)
 prediction_train = lin_model.predict(X_train)
 
 
-# In[17]:
+# In[20]:
 
 
-# R squared error
+# R-squared value
 
-error_score = metrics.r2_score(Y_train, prediction_train)
-print('R squared error: ', error_score)
+rsq_train = metrics.r2_score(Y_train, prediction_train)
+print('R-squared value: ', rsq_train)
 
 
 # ### Visualize the actual prices and predicted prices
 
-# In[18]:
+# In[21]:
 
 
 plt.scatter(Y_train, prediction_train)
@@ -168,7 +168,7 @@ plt.ylim([-7, 35])
 plt.show()
 
 
-# In[19]:
+# In[22]:
 
 
 # prediction on test data
@@ -176,16 +176,16 @@ plt.show()
 prediction_test = lin_model.predict(X_test)
 
 
-# In[20]:
+# In[23]:
 
 
-# R squared error
+# R-squared value
 
-error_test = metrics.r2_score(Y_test, prediction_test)
-print('R squared error: ', error_test)
+rsq_test = metrics.r2_score(Y_test, prediction_test)
+print('R-squared value: ', rsq_test)
 
 
-# In[21]:
+# In[24]:
 
 
 plt.scatter(Y_test, prediction_test)
@@ -199,7 +199,7 @@ plt.show()
 
 # ### 2. Lasso Regression
 
-# In[22]:
+# In[25]:
 
 
 # loading the lasso regression model
@@ -207,7 +207,7 @@ plt.show()
 lass_model = Lasso()
 
 
-# In[23]:
+# In[26]:
 
 
 lass_model.fit(X_train, Y_train)
@@ -215,7 +215,7 @@ lass_model.fit(X_train, Y_train)
 
 # ### Evaluating model
 
-# In[24]:
+# In[27]:
 
 
 # prediction on training data
@@ -223,18 +223,18 @@ lass_model.fit(X_train, Y_train)
 pred_train = lass_model.predict(X_train)
 
 
-# In[25]:
+# In[28]:
 
 
-# R squared error
+# R-squared value
 
-err_score = metrics.r2_score(Y_train, pred_train)
-print('R squared error: ', err_score)
+r_train = metrics.r2_score(Y_train, pred_train)
+print('R-squared value: ', r_train)
 
 
 # ### Visualize the actual prices and predicted prices
 
-# In[26]:
+# In[29]:
 
 
 plt.scatter(Y_train, pred_train)
@@ -246,7 +246,7 @@ plt.ylim([-7, 35])
 plt.show()
 
 
-# In[27]:
+# In[30]:
 
 
 # prediction on test data
@@ -254,16 +254,16 @@ plt.show()
 pred_test = lass_model.predict(X_test)
 
 
-# In[28]:
+# In[31]:
 
 
-# R squared error
+# R-squared value
 
-err_test = metrics.r2_score(Y_test, pred_test)
-print('R squared error: ', err_test)
+r_test = metrics.r2_score(Y_test, pred_test)
+print('R-squared value: ', r_test)
 
 
-# In[29]:
+# In[32]:
 
 
 plt.scatter(Y_test, pred_test)
@@ -279,7 +279,7 @@ plt.show()
 
 # Save Model
 
-# In[30]:
+# In[33]:
 
 
 with open('car_price.pkl', 'wb') as f:
@@ -288,7 +288,7 @@ with open('car_price.pkl', 'wb') as f:
 
 # Load Model
 
-# In[31]:
+# In[34]:
 
 
 with open('car_price.pkl', 'rb') as f:
